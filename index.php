@@ -1,4 +1,5 @@
 <?php 
+
 session_start();
 
 require 'helpers.php';
@@ -9,7 +10,10 @@ spl_autoload_register(function ($className) {
     require "src/$fileName.php";
 });
 
+$route = $_SERVER['PATH_INFO'] ?? '/';
+
 $routes = require 'config/routes.php';
+
 
 if (isset($routes[$route])) {
     list($controllerName, $method) = $routes[$route];
@@ -18,4 +22,5 @@ if (isset($routes[$route])) {
     $controller->$method();
 } else {
     echo 'bug';
+    //404.PHTML
 }
