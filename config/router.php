@@ -2,7 +2,15 @@
 
 return [
     '/' => [
-        'App\Controllers\HomeController',
+        'App\Controller\HomeController',
         'index'
     ],
+    '/inscription' => [
+        'App\Controller\InscriptionController',
+        'index'
+    ],
+    '/connection' => [
+        'App\Controller\ConnectionController',
+        'index'
+    ]
 ];
