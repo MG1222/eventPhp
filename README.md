@@ -17,7 +17,7 @@ Une platforme pour créer des événements
 
 ## further
 
-* Stipe
+* Stripe
 
 
 <hr>
