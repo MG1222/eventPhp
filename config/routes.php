@@ -4,10 +4,15 @@ return [
     '/' => [
         'App\Controllers\HomeController',
         'index'
-
     ],
-    '/logIn' => [
+
+    '/signUp' => [
         'App\Controllers\UserController',
-        'logIn'
+        'signUp'
+    ],
+
+    '/category' => [
+    'App\Controllers\CategoryController',
+    'index'
     ]
 ];
