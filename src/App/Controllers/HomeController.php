@@ -6,8 +6,7 @@ use Library\Core\AbstractController;
 
 class HomeController extends AbstractController
 {
-    public function index(): void
-    {
+    public function index(): void {
         $this->display('homePage');
     }
 }
