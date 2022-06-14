@@ -4,5 +4,5 @@ return [
     'host' => 'localhost',
     'dbname' => 'event',
     'user' => 'root',
-    'password' => ''
+    'password' => 'root'
 ];
