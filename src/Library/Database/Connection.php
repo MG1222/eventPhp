@@ -19,6 +19,7 @@ class Connection
             ]
         );
     }
+
     public function getResults(string $sql, ?array $parameters = null): array
     {
         $query = $this->pdo->prepare($sql);
@@ -44,4 +45,6 @@ class Connection
     {
         $this->pdo = $pdo;
     }
+
 }
+
