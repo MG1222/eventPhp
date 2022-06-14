@@ -7,7 +7,7 @@ use PDO;
 class Connection
 {
     protected PDO $pdo;
-    
+
     public function __construct(array $config)
     {
         $this->pdo = new PDO(
@@ -20,32 +20,31 @@ class Connection
         );
     }
 
-    public function getResults(string $sql, ?array $param = null): array
+    public function getResults(string $sql, ?array $parameters = null): array
     {
         $query = $this->pdo->prepare($sql);
-        $query->execute($param);
-        
+        $query->execute($parameters);
+
         return $query->fetchAll();
     }
-    
-    /* Crud */
-    
-    public function execute(string $sql, ?array $param = null): string|false
+
+    public function execute(string $sql, ?array $parameters = null): string
     {
         $query = $this->pdo->prepare($sql);
-        $query->execute($param);
-        
+        $query->execute($parameters);
+
         return $this->pdo->lastInsertId();
     }
-    
+
     public function getPdo(): PDO
     {
         return $this->pdo;
     }
-    
+
     public function setPdo(PDO $pdo): void
     {
         $this->pdo = $pdo;
     }
-    
+
 }
+

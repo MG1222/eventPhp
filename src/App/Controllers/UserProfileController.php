@@ -10,7 +10,7 @@ class UserProfileController extends AbstractController
 {
     public function userProfile(): void
     {
-        var_dump($_SESSION);
+    
        
         try {
             if (isset($_SESSION['user_id'])) {
