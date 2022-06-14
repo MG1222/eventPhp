@@ -5,7 +5,12 @@ use App\Models\CategoryManager;
 use Library\Core\AbstractController;
 
 class CategoryController extends AbstractController {
+
+    private $title_category;
+
+
     public function index(): void {
+
         if (empty($_POST)) {
             $this->display('category');
         } else {

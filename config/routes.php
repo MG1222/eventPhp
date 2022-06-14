@@ -14,5 +14,11 @@ return [
     '/category' => [
     'App\Controllers\CategoryController',
     'index'
-    ]
+    ],
+
+    '/eventform' => [
+        'App\Controllers\EventController',
+        'index'
+    ],
+
 ];
