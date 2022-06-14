@@ -7,18 +7,23 @@ return [
     ],
 
     '/signUp' => [
-        'App\Controllers\UserController',
+        'App\Controllers\SignUpController',
         'signUp'
+    ],
+
+    '/userProfile' => [
+        'App\Controllers\UserProfileController',
+        'userProfile'
     ],
 
     '/category' => [
     'App\Controllers\CategoryController',
     'index'
+
     ],
 
     '/eventform' => [
         'App\Controllers\EventController',
         'index'
     ],
-
 ];
