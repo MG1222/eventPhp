@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
+use DateTime;
 class User
 {
-
     private ?int $id = null;
     private string $fullName;
     private ?string $pseudo = null;
@@ -10,7 +10,7 @@ class User
     private string $password;
     private string $passwordConfirmation;
     private ?string $profilImage = null;
-    /* private DateTime $createdAt; */
+    private DateTime $createdAt; 
 
 
     /* ID */
@@ -39,12 +39,12 @@ class User
 
     /* PSEUDO */
 
-    public function getPseudo(): string
+    public function getPseudo(): ?string
     {
         return $this->pseudo;
     }
 
-    public function setPseudo(string $pseudo): void
+    public function setPseudo(?string $pseudo): void
     {
         $this->pseudo = $pseudo;
     }
@@ -99,7 +99,7 @@ class User
         $this->profilImage = $profilImage;
     }
 
-   /*  /* CREATED AT 
+  /* CREATED AT */
 
     public function getCreatedAt(): DateTime
     {
@@ -109,11 +109,11 @@ class User
     public function setCreatedAt(DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
-    } */
+    } 
 
     /* Validate User */
 
-    public function isValid(): array
+    public function getErrors(): array
     {
         $errors = [];
         
@@ -121,7 +121,7 @@ class User
              $errors['email'] = 'Format d\'email invalide ! THX';
          }
         
-        if (strlen($this->plainPassword) < 8) {
+        if (strlen($this->password) < 8) {
             $errors['password'] = 'Le mot de passe doit contenir au moins 8 caractères ! THX';
         }
         

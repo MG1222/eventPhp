@@ -9,24 +9,29 @@ use PDOException;
 
 class UserController extends AbstractController
 {
-    public function logIn(): void
+    public function signUp(): void
     {
-       $this->display('logIn') ;
-       try{
-           if(isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password']) === isset($_POST['passwordConfirmation']) && isset($_POST['pseudo'])) {
+       $this->display('signUp');
 
-           $user = new User();
-           $user->setFullName($_POST['fullName']);
-           $user->setEmail($_POST['email']);
-           $user->setPassword(password_hash($_POST['password'], PASSWORD_ARGON2ID));
-           $user->setPasswordConfirmation($_POST['passwordConfirmation']);
-            $user->setPseudo($_POST['pseudo']);
+        /*  var_dump(isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordConfirmation']), $_POST); */
+
+       try{
+           if(isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordConfirmation'])) {
+             if(isset($_POST['password']) === isset($_POST['passwordConfirmation']))  {
+                $user = new User();
+                $user->setFullName($_POST['fullName']);
+                $user->setEmail($_POST['email']);
+                $user->setPassword(password_hash($_POST['password'], PASSWORD_ARGON2ID));
+                $user->setPasswordConfirmation($_POST['passwordConfirmation']);
+             }
+ 
+
+            $errors = $user->getErrors();
            
-            if($user->isValid()) {
+            if(! empty($errors)) {
                 $userManager = new UserManager();
                 $userManager->createUser($user);
                 echo ' UC -- done';
-
             } 
        }
          } catch(PDOException $e) {

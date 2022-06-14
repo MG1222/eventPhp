@@ -6,8 +6,8 @@ return [
         'index'
 
     ],
-    '/logIn' => [
+    '/signUp' => [
         'App\Controllers\UserController',
-        'logIn'
+        'signUp'
     ]
 ];
