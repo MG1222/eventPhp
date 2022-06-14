@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link rel="stylesheet" href="/asset/css/style.css">
     <meta charset="UTF-8">
@@ -12,8 +12,10 @@
     <header>
         <nav>
             <div>
-                    <img src="/asset/image/logo.png" alt="">
+                <img class="logo" src="/asset/image/logo.png" alt="logo d'Event">
+                <img class="logoRemove" src="/asset/image/logo remouv.png" alt="logo d'event">
             </div>
+
             <ul>
                 <li>
                     <a href="<?= url('/') ?>">Home</a>
@@ -30,10 +32,7 @@
         </nav>
     </header>
 
-    <main>
-
     <?php require $template . '.phtml' ?>
-    </main>
 
     
 </body>

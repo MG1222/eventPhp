@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #909090;
+  background-color: #545454;
   height: 100px;
 }
 header nav {
@@ -15,16 +15,44 @@ header nav div {
   height: 100px;
   width: 100px;
 }
+header nav .logo {
+  display: block;
+}
+header nav .logoRemove {
+  display: none;
+}
+header nav div:hover {
+  transform: translate(0px, 200px);
+  transition: 1s;
+  height: 200px;
+  width: 200px;
+}
+header nav div:hover .logo {
+  display: none;
+}
+header nav div:hover .logoRemove {
+  display: block;
+}
 header nav ul {
   width: 100%;
   display: flex;
   justify-content: end;
   flex-direction: row;
-  gap: 30px;
 }
 header nav ul a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 200px;
+}
+header nav ul a:hover {
+  background-color: white;
   color: black;
+  transition: 0.5s;
 }
 
 *,
