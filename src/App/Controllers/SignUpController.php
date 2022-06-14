@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\UserManager;
 use PDOException;
 
-class UserController extends AbstractController
+class SignUpController extends AbstractController
 {
     public function signUp(): void
     {
@@ -17,21 +17,29 @@ class UserController extends AbstractController
 
        try{
            if(isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordConfirmation'])) {
-             if(isset($_POST['password']) === isset($_POST['passwordConfirmation']))  {
+             if($_POST['password'] === $_POST['passwordConfirmation'])  {
                 $user = new User();
                 $user->setFullName($_POST['fullName']);
                 $user->setEmail($_POST['email']);
                 $user->setPassword(password_hash($_POST['password'], PASSWORD_ARGON2ID));
                 $user->setPasswordConfirmation($_POST['passwordConfirmation']);
+
+                var_dump($user);
+                
              }
  
 
             $errors = $user->getErrors();
            
-            if(! empty($errors)) {
+            if(empty($errors)) {
                 $userManager = new UserManager();
-                $userManager->createUser($user);
+                $user = $userManager->createUser($user);
+
+                $_SESSION['user_id'] = $user->getId();
                 echo ' UC -- done';
+                
+                header('Location: ' . url('/userProfile'));
+                exit;
             } 
        }
          } catch(PDOException $e) {
@@ -42,4 +50,6 @@ class UserController extends AbstractController
 
 
     }
+
+
 }

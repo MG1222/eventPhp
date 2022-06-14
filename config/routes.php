@@ -7,7 +7,12 @@ return [
 
     ],
     '/signUp' => [
-        'App\Controllers\UserController',
+        'App\Controllers\SignUpController',
         'signUp'
+    ],
+    '/userProfile' => [
+        'App\Controllers\UserProfileController',
+        'userProfile'
     ]
+
 ];
