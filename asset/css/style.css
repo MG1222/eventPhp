@@ -1,3 +1,6 @@
+body {
+  background: red;
+}
 header {
   display: flex;
   justify-content: center;
