@@ -11,6 +11,11 @@ return [
         'signUp'
     ],
 
+    '/logIn' => [
+        'App\Controllers\LogIn',
+        'logIn'
+    ],
+
     '/userProfile' => [
         'App\Controllers\UserProfileController',
         'userProfile'
